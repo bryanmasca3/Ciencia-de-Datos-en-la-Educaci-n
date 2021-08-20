@@ -1,5 +1,5 @@
 export const DATA = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson';
-export const DATA2="https://raw.githubusercontent.com/uber-common/deck.gl-data/master/website/hexagons.json";
+export const DATA2="https://raw.github.com/bryanmasca3/Ciencia-de-Datos-en-la-Educaci-n/blob/master/src/dataset/ColumnData.json";
 export const DATA3=[
        {
          inbound: 72633,

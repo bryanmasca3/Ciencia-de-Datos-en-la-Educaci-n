@@ -3,11 +3,10 @@ import {load} from '@loaders.gl/core';
 import {ColumnLayer} from '@deck.gl/layers';
 import {DATA2}from "./../Constants/data";
 
-const batches =async()=> await load('../dataset/ColumnLayerData.json', JSONLoader);
-console.log(batches);
+
 export const columnLayerCustom = new ColumnLayer({
     id: 'column-layer',
-    data:batches,
+    data:DATA2,
     diskResolution: 12,
     radius: 50,
     extruded: true,
