@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {StaticMap, MapContext, NavigationControl} from 'react-map-gl';
+import DeckGL from 'deck.gl';
+import {MAPBOX_TOKEN,MAP_STYLE}from "./Constants/variables";
+import {NAV_CONTROL_STYLE} from "./utils/control";
+//import {GeoLayerCustom} from "./Layers/geoLayer";
+//import {ArcLayerCustom} from "./Layers/arcLayer";
+import {columnLayerCustom} from "./Layers/columnLayer";
+import {lineLayerCustom} from "./Layers/lineLayer";
 
-function App() {
+const INITIAL_VIEW_STATE = {
+  latitude: 41.874,
+  longitude: -75.789,
+  zoom: 5
+};
+console.log(columnLayerCustom);
+const App=()=> {  
+  const layers = [
+    columnLayerCustom,
+    lineLayerCustom
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DeckGL
+      initialViewState={INITIAL_VIEW_STATE}
+      controller={true}
+      layers={layers}
+      ContextProvider={MapContext.Provider}>
+        <StaticMap mapStyle={MAP_STYLE} mapboxApiAccessToken={MAPBOX_TOKEN} />
+        <NavigationControl style={NAV_CONTROL_STYLE} />
+    </DeckGL>
   );
 }
-
 export default App;
